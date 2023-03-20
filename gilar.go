@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -60,4 +61,17 @@ func InsertContacus(db string, contacus Contacus) (insertedID interface{}) {
 		fmt.Printf("InsertContacus: %v\n", err)
 	}
 	return insertResult.InsertedID
+}
+func GetDataMhs(img_dosen string) (data []Dosen) {
+	user := MongoConnect("penggajian").Collection("team")
+	filter := bson.M{"nama": img_dosen}
+	cursor, err := user.Find(context.TODO(), filter)
+	if err != nil {
+		fmt.Println("GetDataMhs :", err)
+	}
+	err = cursor.All(context.TODO(), &data)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return
 }
