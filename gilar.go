@@ -63,7 +63,7 @@ func InsertContacus(db string, contacus Contacus) (insertedID interface{}) {
 	return insertResult.InsertedID
 }
 func GetDataMhs(img_dosen string) (data []Dosen) {
-	user := MongoConnect("penggajian").Collection("team")
+	user := MongoConnect("tablerps").Collection("Dosen")
 	filter := bson.M{"img_dosen": img_dosen}
 	cursor, err := user.Find(context.TODO(), filter)
 	if err != nil {
