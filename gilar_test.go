@@ -73,8 +73,32 @@ import (
 //			t.Error("Failed to insert team")
 //		}
 //	}
+
 func TestGetDataDosen(t *testing.T) {
 	stats := "DOSEN"
 	data := GetDataDosen(stats)
+	fmt.Println(data)
+}
+
+func TestGetDataAbout(t *testing.T) {
+	stats := "Apakah kurikulum ini menyulitkan hidup?"
+	data := GetDataAbout(stats)
+	fmt.Println(data)
+}
+
+func TestGetDataContacus(t *testing.T) {
+	stats := "0822126722"
+	data := GetDataContacus(stats)
+	fmt.Println(data)
+}
+
+func TestGetDataDashboard(t *testing.T) {
+	stats := "Denmark"
+	data := GetDataDashboard(stats)
+	fmt.Println(data)
+}
+func TestGetDataMahasiswa(t *testing.T) {
+	stats := "johndoe@flex.co"
+	data := GetDataMahasiswa(stats)
 	fmt.Println(data)
 }
