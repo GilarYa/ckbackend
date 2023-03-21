@@ -1,6 +1,7 @@
 package ckbackend
 
 import (
+	"fmt"
 	"testing"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -72,4 +73,9 @@ func TestInsertContacus(t *testing.T) {
 	if insertedID == nil {
 		t.Error("Failed to insert team")
 	}
+}
+func TestGetDataDosen(t *testing.T) {
+	stats := "DOSEN"
+	data := GetDataDosen(stats)
+	fmt.Println(data)
 }
